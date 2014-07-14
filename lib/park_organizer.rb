@@ -16,13 +16,7 @@ class ParkOrganizer
   end
 
   def sort_by_country
-    #working to figure out how to make parks with same country appear in an array together
-    sorted_parks = {}
-    parks = @parks.sort_by {|hash| hash[:country]}
-    parks.each do |park|
-      sorted_parks[park[:country]] = [park]
-    end
-    sorted_parks
+    @parks.group_by {|hash| hash[:country]}
   end
 
 end
